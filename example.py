@@ -14,10 +14,12 @@ if __name__ == "__main__":
     test_file.config('variable','prmsl')
     #convert to utc timestamp
     test_file.config('time_range',[cal.timegm(dt.date(1968,1,1).timetuple()),cal.timegm(dt.date(2000,1,1).timetuple())])
-    test_file.config('lat_range',[-70,-60])
+    test_file.config('lat_range',[-5,0])
     test_file.config('lon_range',[0,10])
     test_data=test_file.read()
     test_data.filter('period',7)
-    test_eof=test_data.eof()
-    test_eof.plot_eof(name='bar')
+    #test_eof=test_data.eof()
+    #test_eof.plot_eof(name='bar')
+    #test_data.compute_correlation("test.cdf")
+    test_data.compute_distances("test_dist.cdf")
 
